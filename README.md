@@ -84,3 +84,44 @@ curl -X POST http://127.0.0.1:8000/tasks \
 Backend tests use `pytest` + `httpx` TestClient.
 
 ```bash
+# from project root (ensures imports work)
+conda activate todos
+pytest -q backend
+```
+
+---
+
+## 🧱 Project Structure
+```text
+/backend
+  app.py            # FastAPI app & routes
+  db.py             # SQLAlchemy engine/session
+  models.py         # Task model
+  schemas.py        # Pydantic request/response
+  tests/
+    test_api.py
+  .env.example
+/frontend
+  index.html
+  package.json
+  vite.config.ts
+  tsconfig.json
+  src/
+    main.tsx
+    App.tsx
+    api.ts
+    components/
+      LovableTaskUI.tsx
+  .env.example
+/docker-compose.yml
+/README.md
+```
+
+---
+
+## ✨ Notes
+
+- Tables are created on startup via `create_all` to keep setup minimal.
+- Optimistic UI updates for a snappy feel; automatic rollback on API errors.
+- Stop DB with `docker compose down` (data persists via named volume).
+- If ports conflict, adjust Vite/uvicorn or `docker-compose.yml` ports as needed.
