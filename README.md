@@ -19,7 +19,7 @@ docker compose up -d
 ```bash
 # from project root
 cd backend
-cp .env.example .env
+cp .env
 
 # create + activate env
 conda create -n todos python=3.11 -y
