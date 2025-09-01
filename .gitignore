@@ -1,7 +1,25 @@
-/.venv
+# macOS
+.DS_Store
+
+# Python
 __pycache__/
+*.py[cod]
+*.pytest_cache/
+.venv/
+venv/
 .env
-backend/.env
+.env.*
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Node / Vite
 node_modules/
 dist/
-.DS_Store
+*.log
+*.local
+frontend/.env
+frontend/.env.*
+
+# Docker
+**/pgdata/
